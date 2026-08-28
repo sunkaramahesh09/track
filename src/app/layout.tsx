@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: {
-    default: "Placement OS",
-    template: "%s · Placement OS",
+    default: "Track",
+    template: "%s · Track",
   },
   description:
     "A daily operating system for placement preparation — tasks, scores, streaks and analytics that reward consistency over intensity.",
-  applicationName: "Placement OS",
+  applicationName: "Track",
 };
 
 export const viewport: Viewport = {

@@ -4,7 +4,7 @@ import * as React from "react";
 
 export type Theme = "light" | "dark" | "system";
 
-export const THEME_STORAGE_KEY = "placement-os-theme";
+export const THEME_STORAGE_KEY = "track-theme";
 
 const DARK_QUERY = "(prefers-color-scheme: dark)";
 

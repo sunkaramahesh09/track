@@ -17,7 +17,7 @@ try {
 } catch {
   /* .env.local is optional */
 }
-uri ??= "mongodb://127.0.0.1:27017/placement-os";
+uri ??= "mongodb://127.0.0.1:27017/track";
 
 // `base` is the completion probability on a perfectly disciplined day; the
 // per-day `mood` multiplier below is what creates the variation.

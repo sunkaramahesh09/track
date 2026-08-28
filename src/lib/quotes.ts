@@ -7,7 +7,7 @@ export interface Motivation {
 }
 
 const QUOTES: { quote: string; author: string }[] = [
-  { quote: "Consistency beats intensity.", author: "Placement OS" },
+  { quote: "Consistency beats intensity.", author: "Track" },
   { quote: "You do not rise to the level of your goals. You fall to the level of your systems.", author: "James Clear" },
   { quote: "Discipline is choosing between what you want now and what you want most.", author: "Abraham Lincoln" },
   { quote: "It is not that we have a short time to live, but that we waste a lot of it.", author: "Seneca" },

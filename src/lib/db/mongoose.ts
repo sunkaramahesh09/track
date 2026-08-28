@@ -7,7 +7,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
  * which case the driver would silently use "test"; naming it explicitly makes
  * the target the same whether the URI carries a database or not.
  */
-const DB_NAME = process.env.MONGODB_DB ?? "placement-os";
+const DB_NAME = process.env.MONGODB_DB ?? "track";
 
 /**
  * Serverless functions are recycled, not long-lived: each warm instance should
@@ -23,10 +23,10 @@ interface MongooseCache {
 }
 
 const globalWithMongoose = globalThis as typeof globalThis & {
-  __placementOsMongoose?: MongooseCache;
+  __trackMongoose?: MongooseCache;
 };
 
-const cached: MongooseCache = (globalWithMongoose.__placementOsMongoose ??= {
+const cached: MongooseCache = (globalWithMongoose.__trackMongoose ??= {
   conn: null,
   promise: null,
 });

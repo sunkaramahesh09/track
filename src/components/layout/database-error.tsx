@@ -21,7 +21,7 @@ export function DatabaseError({ message }: { message: string }) {
         </h2>
         <p className="mt-1.5 text-sm leading-relaxed text-[var(--color-ink-muted)]">
           {missingUri
-            ? "Placement OS stores every day as a document in MongoDB, and no connection string is set."
+            ? "Track stores every day as a document in MongoDB, and no connection string is set."
             : "The connection string is set, but the database refused or timed out on the connection."}
         </p>
 

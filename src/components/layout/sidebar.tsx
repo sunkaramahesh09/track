@@ -18,7 +18,7 @@ export function Sidebar() {
         </span>
         <span className="leading-tight">
           <span className="block text-[15px] font-semibold tracking-tight">
-            Placement OS
+            Track
           </span>
           <span className="block text-[11px] text-[var(--color-ink-faint)]">
             Discipline, measured

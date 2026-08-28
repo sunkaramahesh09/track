@@ -1,4 +1,4 @@
-# Placement OS — working notes
+# Track — working notes
 
 Personal placement-preparation tracker. Next.js 16 (App Router) + TypeScript +
 Tailwind v4 + MongoDB Atlas/Mongoose + Recharts. Single-user, no auth.

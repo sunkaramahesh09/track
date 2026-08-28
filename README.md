@@ -1,4 +1,4 @@
-# Placement OS
+# Track
 
 A daily operating system for placement preparation — eight fixed tasks, a
 rotating core subject, a weighted score out of 100, streaks, XP, levels and a
@@ -58,7 +58,7 @@ Copy `.env.example` to `.env.local` and fill it in:
 
 ```
 MONGODB_URI="mongodb+srv://<user>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority"
-MONGODB_DB="placement-os"
+MONGODB_DB="track"
 NEXT_PUBLIC_APP_TIMEZONE="Asia/Kolkata"
 ```
 
