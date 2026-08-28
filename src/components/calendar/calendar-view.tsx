@@ -90,7 +90,7 @@ export function CalendarView({ from, to, today, summaries, streaks }: Props) {
                 className={cn(
                   "rounded-lg px-2.5 py-1 text-[11.5px] font-medium capitalize transition-colors",
                   view === option
-                    ? "bg-white/[0.09] text-[var(--color-ink)]"
+                    ? "bg-[var(--tint-4)] text-[var(--color-ink)]"
                     : "text-[var(--color-ink-faint)] hover:text-[var(--color-ink)]",
                 )}
               >

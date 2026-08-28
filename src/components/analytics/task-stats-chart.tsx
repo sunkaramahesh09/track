@@ -33,7 +33,7 @@ export function TaskStatsChart({ stats }: { stats: TaskStat[] }) {
                 {stat.name}
               </span>
               {stat.currentRun > 1 && (
-                <span className="numeric shrink-0 rounded-md bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--accent-orange)]">
+                <span className="numeric shrink-0 rounded-md bg-[var(--tint-3)] px-1.5 py-0.5 text-[10px] font-semibold text-[var(--accent-orange)]">
                   {stat.currentRun}d run
                 </span>
               )}
@@ -45,7 +45,7 @@ export function TaskStatsChart({ stats }: { stats: TaskStat[] }) {
               </span>
             </span>
           </div>
-          <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--tint-2)]">
             <div
               className="h-full rounded-full transition-[width] duration-700 ease-out"
               style={{

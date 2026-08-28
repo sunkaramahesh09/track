@@ -38,7 +38,7 @@ mongosh --quiet --eval 'db.runCommand({ping:1})'`}
           />
         </div>
 
-        <p className="mt-5 rounded-lg border border-[var(--color-hairline)] bg-white/[0.02] px-3 py-2 font-mono text-[11.5px] leading-relaxed text-[var(--color-ink-faint)]">
+        <p className="mt-5 rounded-lg border border-[var(--color-hairline)] bg-[var(--tint-1)] px-3 py-2 font-mono text-[11.5px] leading-relaxed text-[var(--color-ink-faint)]">
           {message}
         </p>
       </CardContent>
@@ -56,7 +56,7 @@ function Fix({
   code?: string;
 }) {
   return (
-    <div className="rounded-xl border border-[var(--color-hairline)] bg-white/[0.02] p-4">
+    <div className="rounded-xl border border-[var(--color-hairline)] bg-[var(--tint-1)] p-4">
       <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--color-ink-muted)]">
         {title}
       </p>
@@ -64,7 +64,7 @@ function Fix({
         {body}
       </p>
       {code && (
-        <pre className="mt-3 overflow-x-auto rounded-lg bg-black/40 px-3 py-2 font-mono text-[12px] leading-relaxed text-[var(--color-ink-faint)]">
+        <pre className="mt-3 overflow-x-auto rounded-lg bg-[var(--tint-3)] px-3 py-2 font-mono text-[12px] leading-relaxed text-[var(--color-ink-faint)]">
 {code}
         </pre>
       )}

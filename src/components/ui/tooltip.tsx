@@ -18,7 +18,7 @@ export function TooltipContent({
       <TooltipPrimitive.Content
         sideOffset={sideOffset}
         className={cn(
-          "z-50 max-w-xs rounded-xl border border-[var(--color-hairline-strong)] bg-[color-mix(in_oklab,var(--color-canvas)_94%,white_6%)] px-3 py-2 text-xs leading-relaxed text-[var(--color-ink)] shadow-xl backdrop-blur-xl",
+          "z-50 max-w-xs rounded-xl border border-[var(--color-hairline-strong)] bg-[var(--elevated-bg)] px-3 py-2 text-xs leading-relaxed text-[var(--color-ink)] shadow-xl backdrop-blur-xl",
           "data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in data-[state=delayed-open]:zoom-in-95",
           className,
         )}

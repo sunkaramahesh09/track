@@ -34,8 +34,8 @@ export function TaskRow({ task, entry, onToggle, disabled, index }: TaskRowProps
           "group relative flex w-full items-center gap-3.5 rounded-2xl border p-3.5 text-left transition-all duration-250",
           "disabled:cursor-progress disabled:opacity-70",
           done
-            ? "border-transparent bg-white/[0.055]"
-            : "border-[var(--color-hairline)] bg-white/[0.02] hover:border-[var(--color-hairline-strong)] hover:bg-white/[0.05]",
+            ? "border-transparent bg-[var(--tint-2)]"
+            : "border-[var(--color-hairline)] bg-[var(--tint-1)] hover:border-[var(--color-hairline-strong)] hover:bg-[var(--tint-2)]",
         )}
         style={
           done
@@ -59,7 +59,7 @@ export function TaskRow({ task, entry, onToggle, disabled, index }: TaskRowProps
           }
         >
           {done && (
-            <Icon name="Check" className="animate-pop size-3.5 text-black/85" strokeWidth={3.5} />
+            <Icon name="Check" className="animate-pop size-3.5 text-[var(--on-accent)]" strokeWidth={3.5} />
           )}
         </span>
 

@@ -16,7 +16,7 @@ export function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content>) {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:animate-in data-[state=open]:fade-in" />
+      <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-[var(--scrim)] backdrop-blur-md data-[state=closed]:animate-out data-[state=closed]:fade-out data-[state=open]:animate-in data-[state=open]:fade-in" />
       <DialogPrimitive.Content
         /* Opaque ground rather than the translucent `.glass` used in-flow —
            a modal sits over dense content and must not let it bleed through. */
@@ -26,10 +26,7 @@ export function DialogContent({
           "max-h-[85vh] overflow-y-auto",
           className,
         )}
-        style={{
-          background:
-            "linear-gradient(160deg, color-mix(in oklab, var(--color-canvas) 90%, white 10%), color-mix(in oklab, var(--color-canvas) 97%, transparent))",
-        }}
+        style={{ background: "var(--elevated-bg)" }}
         {...props}
       >
         {children}

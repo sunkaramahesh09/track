@@ -32,10 +32,7 @@ export function CelebrationToast() {
           rather than the translucent glass used by in-flow surfaces. */}
       <div
         className="flex items-start gap-3 rounded-2xl border border-[var(--color-accent)]/40 p-4 shadow-[0_20px_60px_-20px_rgba(124,92,255,0.7)] backdrop-blur-2xl"
-        style={{
-          background:
-            "linear-gradient(160deg, color-mix(in oklab, var(--color-canvas) 92%, white 8%), color-mix(in oklab, var(--color-canvas) 97%, transparent))",
-        }}
+        style={{ background: "var(--elevated-bg)" }}
       >
         <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[#8b6cff] to-[#4f37c9]">
           <Icon name={ICONS[celebration.kind]} className="size-5 text-white" />

@@ -30,7 +30,7 @@ export function ProgressRing({
   strokeWidth = 12,
   color,
   gradient,
-  trackColor = "rgba(255,255,255,0.07)",
+  trackColor = "var(--tint-3)",
   className,
   children,
 }: ProgressRingProps) {

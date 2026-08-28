@@ -51,7 +51,7 @@ export function BadgeCard({
               ? "var(--color-hairline)"
               : `color-mix(in oklab, ${color} 40%, transparent)`,
             background: locked
-              ? "rgba(255,255,255,0.03)"
+              ? "var(--tint-1)"
               : `color-mix(in oklab, ${color} 16%, transparent)`,
             boxShadow: locked ? undefined : `0 0 20px -8px ${color}`,
           }}

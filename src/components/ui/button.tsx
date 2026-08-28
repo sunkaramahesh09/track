@@ -13,11 +13,11 @@ const buttonVariants = cva(
         primary:
           "bg-gradient-to-b from-[#8b6cff] to-[#6d4bf0] text-white shadow-[0_10px_30px_-12px_rgba(124,92,255,0.9)] hover:from-[#9a7dff] hover:to-[#7a5bf5]",
         glass:
-          "glass text-[var(--color-ink)] hover:border-[var(--color-hairline-strong)] hover:bg-white/[0.06]",
+          "glass text-[var(--color-ink)] hover:border-[var(--color-hairline-strong)] hover:bg-[var(--tint-3)]",
         ghost:
-          "text-[var(--color-ink-muted)] hover:bg-white/[0.06] hover:text-[var(--color-ink)]",
+          "text-[var(--color-ink-muted)] hover:bg-[var(--tint-3)] hover:text-[var(--color-ink)]",
         outline:
-          "border border-[var(--color-hairline-strong)] text-[var(--color-ink)] hover:bg-white/[0.05]",
+          "border border-[var(--color-hairline-strong)] text-[var(--color-ink)] hover:bg-[var(--tint-2)]",
         danger:
           "bg-[var(--tier-poor)]/15 text-[var(--tier-poor)] hover:bg-[var(--tier-poor)]/25",
       },

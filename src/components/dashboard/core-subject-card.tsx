@@ -82,8 +82,8 @@ export function CoreSubjectCard() {
             "mt-5 flex w-full items-center justify-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition-all duration-250 active:scale-[0.99]",
             "disabled:cursor-progress disabled:opacity-70",
             done
-              ? "text-black/85"
-              : "border-[var(--color-hairline-strong)] text-[var(--color-ink)] hover:bg-white/[0.06]",
+              ? "text-[var(--on-accent)]"
+              : "border-[var(--color-hairline-strong)] text-[var(--color-ink)] hover:bg-[var(--tint-3)]",
           )}
           style={
             done

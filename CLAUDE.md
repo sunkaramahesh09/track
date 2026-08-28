@@ -61,7 +61,19 @@ build and are not covered by tsc.
 - Colour: `--accent-*` / `--tier-*` are ink (text) colours; `--viz-*` /
   `--mark-*` are mark (fill) colours, validated as a categorical set. Do not use
   ink colours for chart fills or calendar cells.
-- Overlays (dialog, tooltip, toast) use an opaque ground, not `.glass`.
+- Overlays (dialog, tooltip, toast) use an opaque ground (`--elevated-bg`),
+  not `.glass`.
+- **Never hardcode a colour in a component.** No `bg-white/[0.05]`,
+  `text-black/85` or raw `rgba(255,255,255,…)` — they break light mode. Use the
+  role tokens: `--tint-1..4` for surface tints, `--on-accent` for text on a
+  filled accent, `--elevated-bg` for overlays, `--scrim` for modal backdrops.
+- Themes live in `globals.css` as three token blocks: `:root` (light),
+  `:root[data-theme="dark"]`, and the `prefers-color-scheme` media query
+  guarded by `:not([data-theme="light"])`. The dark values are duplicated
+  across the last two on purpose — CSS cannot share a block with a media query.
+- Theme state is read with `useSyncExternalStore` from localStorage + the media
+  query, never mirrored into state by an effect. The inline `THEME_BOOT_SCRIPT`
+  in `<head>` must keep running before first paint or light mode flashes.
 - Prefer deriving state over syncing it in an effect; where state must follow a
   prop, adjust during render (see `quick-notes.tsx`) rather than in `useEffect`.
 

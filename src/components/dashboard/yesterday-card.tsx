@@ -25,7 +25,7 @@ export function YesterdayCard() {
   return (
     <Card className="border-dashed">
       <CardContent className="flex items-center gap-4 p-4">
-        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/[0.04]">
+        <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-[var(--tint-2)]">
           <Icon name="History" className="size-4.5 text-[var(--color-ink-faint)]" />
         </span>
 

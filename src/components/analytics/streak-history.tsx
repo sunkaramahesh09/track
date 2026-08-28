@@ -46,7 +46,7 @@ export function StreakHistory({ streaks }: { streaks: StreakState }) {
                 {run.length}d
               </span>
             </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--tint-2)]">
               <div
                 className="h-full rounded-full"
                 style={{

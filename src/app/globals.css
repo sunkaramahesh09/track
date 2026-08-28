@@ -2,26 +2,21 @@
 
 /* ------------------------------------------------------------------ *
  * Placement OS design tokens
- * Dark-first. Light values exist so the app degrades gracefully if the
- * user forces a light theme, but dark is the intended experience.
+ *
+ * Every colour is a role token defined three times: once for light (the
+ * bare :root default), once for an explicit dark stamp, and once for the
+ * system preference when no explicit choice has been made. Components only
+ * ever reference the roles, so a theme swap touches nothing but this file.
+ *
+ * The dark block is deliberately duplicated rather than derived — light is
+ * not an inversion of dark. Ink colours are re-picked for contrast against
+ * a light ground, and the chart/calendar marks are a separately validated
+ * palette, not the dark one lightened.
  * ------------------------------------------------------------------ */
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
-
-  --color-canvas: #06070c;
-  --color-surface: rgba(255, 255, 255, 0.035);
-  --color-surface-strong: rgba(255, 255, 255, 0.06);
-  --color-hairline: rgba(255, 255, 255, 0.08);
-  --color-hairline-strong: rgba(255, 255, 255, 0.14);
-
-  --color-ink: #f2f4fa;
-  --color-ink-muted: #a1a7bd;
-  --color-ink-faint: #6b7189;
-
-  --color-accent: #7c5cff;
-  --color-accent-soft: #a892ff;
 
   --radius-card: 1.125rem;
 
@@ -31,10 +26,113 @@
   --animate-pop: pop 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
+/* ============================== LIGHT ============================== */
 :root {
+  color-scheme: light;
+
+  --color-canvas: #f6f7fb;
+  --color-ink: #14161f;
+  --color-ink-muted: #545a70;
+  --color-ink-faint: #83899e;
+
+  --color-hairline: rgba(15, 18, 35, 0.1);
+  --color-hairline-strong: rgba(15, 18, 35, 0.18);
+
+  --color-accent: #6d43d9;
+  --color-accent-soft: #5b34c4;
+
+  /* Text/icon colour that sits ON a filled accent. */
+  --on-accent: #ffffff;
+
+  /* Layered surface tints, weakest to strongest. */
+  --tint-1: rgba(15, 18, 35, 0.028);
+  --tint-2: rgba(15, 18, 35, 0.05);
+  --tint-3: rgba(15, 18, 35, 0.07);
+  --tint-4: rgba(15, 18, 35, 0.1);
+
+  /* Overlays (modal, tooltip, toast) get an opaque ground, never glass. */
+  --elevated-bg: #ffffff;
+  --scrim: rgba(15, 18, 35, 0.42);
+
+  /* Ink accents — identity colours for icons and labels, always beside text. */
+  --accent-violet: #6d43d9;
+  --accent-cyan: #0e7490;
+  --accent-emerald: #0f7f57;
+  --accent-amber: #a06a00;
+  --accent-rose: #c2416f;
+  --accent-sky: #2a78d6;
+  --accent-fuchsia: #a33bb5;
+  --accent-lime: #4d7c0f;
+  --accent-orange: #c2410c;
+
+  /* Performance tiers — INK values, tuned for text contrast. */
+  --tier-excellent: #0f7f57;
+  --tier-good: #2a78d6;
+  --tier-average: #a06a00;
+  --tier-poor: #c2416f;
+  --tier-empty: rgba(15, 18, 35, 0.06);
+
+  /* Data-visualisation MARKS — validated as a categorical set against the
+     light surface (lightness band, chroma floor, CVD separation, contrast). */
+  --viz-1: #6d43d9;
+  --viz-2: #0e8f80;
+  --viz-3: #a06a00;
+  --viz-4: #c2416f;
+
+  --mark-excellent: #0f7f57;
+  --mark-good: #2a78d6;
+  --mark-average: #a06a00;
+  --mark-poor: #c2416f;
+
+  --viz-grid: rgba(15, 18, 35, 0.1);
+  --viz-axis: rgba(15, 18, 35, 0.35);
+  --viz-surface: #ffffff;
+
+  --glass-gradient: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.74) 42%,
+    rgba(255, 255, 255, 0.62) 100%
+  );
+  --glass-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.9) inset,
+    0 14px 36px -20px rgba(15, 18, 35, 0.22);
+  --glass-shadow-hover:
+    0 1px 0 0 rgba(255, 255, 255, 0.95) inset,
+    0 22px 48px -22px rgba(15, 18, 35, 0.28);
+
+  --aurora:
+    radial-gradient(60rem 40rem at 12% -10%, rgba(109, 67, 217, 0.13), transparent 60%),
+    radial-gradient(48rem 34rem at 92% 4%, rgba(14, 143, 128, 0.1), transparent 62%),
+    radial-gradient(52rem 40rem at 50% 108%, rgba(194, 65, 111, 0.08), transparent 60%);
+}
+
+/* =============================== DARK ============================== */
+/* Explicit choice — must win over the system preference in both directions. */
+:root[data-theme="dark"] {
   color-scheme: dark;
 
-  /* Accent ramp — used by tasks, badges and charts alike. */
+  --color-canvas: #06070c;
+  --color-ink: #f2f4fa;
+  --color-ink-muted: #a1a7bd;
+  --color-ink-faint: #6b7189;
+
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-hairline-strong: rgba(255, 255, 255, 0.14);
+
+  --color-accent: #7c5cff;
+  --color-accent-soft: #a892ff;
+
+  --on-accent: rgba(0, 0, 0, 0.85);
+
+  --tint-1: rgba(255, 255, 255, 0.022);
+  --tint-2: rgba(255, 255, 255, 0.045);
+  --tint-3: rgba(255, 255, 255, 0.065);
+  --tint-4: rgba(255, 255, 255, 0.095);
+
+  --elevated-bg: #14161f;
+  --scrim: rgba(0, 0, 0, 0.75);
+
   --accent-violet: #8b5cf6;
   --accent-cyan: #22d3ee;
   --accent-emerald: #34d399;
@@ -45,38 +143,119 @@
   --accent-lime: #a3e635;
   --accent-orange: #fb923c;
 
-  /* Performance tiers — one palette shared by score cards and the calendar. */
   --tier-excellent: #34d399;
   --tier-good: #38bdf8;
   --tier-average: #fbbf24;
   --tier-poor: #fb7185;
   --tier-empty: rgba(255, 255, 255, 0.05);
 
-  /* ---------------------------------------------------------------- *
-   * Data-visualisation palette.
-   *
-   * Distinct from the --tier-* / --accent-* tokens above, which are INK
-   * colours tuned for text contrast. These are MARK colours: filled areas,
-   * bars and calendar cells, validated as a categorical set against the
-   * dark canvas (lightness band, chroma floor, CVD separation, contrast).
-   * Slots are assigned in fixed order and never cycled.
-   * ---------------------------------------------------------------- */
-  --viz-1: #7f5af0; /* violet   — primary series */
-  --viz-2: #12a5c4; /* cyan     — secondary series */
-  --viz-3: #c98500; /* amber    — tertiary series */
-  --viz-4: #d55181; /* magenta  — quaternary series */
+  --viz-1: #7f5af0;
+  --viz-2: #12a5c4;
+  --viz-3: #c98500;
+  --viz-4: #d55181;
 
-  /* Status marks for the four performance tiers. Always shipped with a
-     direct label — never colour alone. */
   --mark-excellent: #19a06e;
   --mark-good: #3987e5;
   --mark-average: #c98500;
   --mark-poor: #e0518f;
 
-  /* Recessive chart chrome. */
   --viz-grid: rgba(255, 255, 255, 0.07);
   --viz-axis: rgba(255, 255, 255, 0.32);
   --viz-surface: #06070c;
+
+  --glass-gradient: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.055) 0%,
+    rgba(255, 255, 255, 0.02) 42%,
+    rgba(255, 255, 255, 0.012) 100%
+  );
+  --glass-shadow:
+    0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+    0 18px 48px -24px rgba(0, 0, 0, 0.9);
+  --glass-shadow-hover:
+    0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 26px 60px -26px rgba(0, 0, 0, 0.95);
+
+  --aurora:
+    radial-gradient(60rem 40rem at 12% -10%, rgba(124, 92, 255, 0.18), transparent 60%),
+    radial-gradient(48rem 34rem at 92% 4%, rgba(34, 211, 238, 0.12), transparent 62%),
+    radial-gradient(52rem 40rem at 50% 108%, rgba(232, 121, 249, 0.1), transparent 60%);
+}
+
+/* System preference, only while no explicit choice is stamped. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --color-canvas: #06070c;
+    --color-ink: #f2f4fa;
+    --color-ink-muted: #a1a7bd;
+    --color-ink-faint: #6b7189;
+
+    --color-hairline: rgba(255, 255, 255, 0.08);
+    --color-hairline-strong: rgba(255, 255, 255, 0.14);
+
+    --color-accent: #7c5cff;
+    --color-accent-soft: #a892ff;
+
+    --on-accent: rgba(0, 0, 0, 0.85);
+
+    --tint-1: rgba(255, 255, 255, 0.022);
+    --tint-2: rgba(255, 255, 255, 0.045);
+    --tint-3: rgba(255, 255, 255, 0.065);
+    --tint-4: rgba(255, 255, 255, 0.095);
+
+    --elevated-bg: #14161f;
+    --scrim: rgba(0, 0, 0, 0.75);
+
+    --accent-violet: #8b5cf6;
+    --accent-cyan: #22d3ee;
+    --accent-emerald: #34d399;
+    --accent-amber: #fbbf24;
+    --accent-rose: #fb7185;
+    --accent-sky: #38bdf8;
+    --accent-fuchsia: #e879f9;
+    --accent-lime: #a3e635;
+    --accent-orange: #fb923c;
+
+    --tier-excellent: #34d399;
+    --tier-good: #38bdf8;
+    --tier-average: #fbbf24;
+    --tier-poor: #fb7185;
+    --tier-empty: rgba(255, 255, 255, 0.05);
+
+    --viz-1: #7f5af0;
+    --viz-2: #12a5c4;
+    --viz-3: #c98500;
+    --viz-4: #d55181;
+
+    --mark-excellent: #19a06e;
+    --mark-good: #3987e5;
+    --mark-average: #c98500;
+    --mark-poor: #e0518f;
+
+    --viz-grid: rgba(255, 255, 255, 0.07);
+    --viz-axis: rgba(255, 255, 255, 0.32);
+    --viz-surface: #06070c;
+
+    --glass-gradient: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.02) 42%,
+      rgba(255, 255, 255, 0.012) 100%
+    );
+    --glass-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 18px 48px -24px rgba(0, 0, 0, 0.9);
+    --glass-shadow-hover:
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 26px 60px -26px rgba(0, 0, 0, 0.95);
+
+    --aurora:
+      radial-gradient(60rem 40rem at 12% -10%, rgba(124, 92, 255, 0.18), transparent 60%),
+      radial-gradient(48rem 34rem at 92% 4%, rgba(34, 211, 238, 0.12), transparent 62%),
+      radial-gradient(52rem 40rem at 50% 108%, rgba(232, 121, 249, 0.1), transparent 60%);
+  }
 }
 
 @layer base {
@@ -95,6 +274,10 @@
     font-feature-settings: "cv02", "cv03", "cv04", "ss01";
     letter-spacing: -0.011em;
     overflow-x: hidden;
+    /* Theme swaps should feel like a dissolve, not a flash. */
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
   }
 
   /* Ambient aurora. Fixed and non-interactive so it never affects layout. */
@@ -104,14 +287,11 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background:
-      radial-gradient(60rem 40rem at 12% -10%, rgba(124, 92, 255, 0.18), transparent 60%),
-      radial-gradient(48rem 34rem at 92% 4%, rgba(34, 211, 238, 0.12), transparent 62%),
-      radial-gradient(52rem 40rem at 50% 108%, rgba(232, 121, 249, 0.1), transparent 60%);
+    background: var(--aurora);
   }
 
   ::selection {
-    background: rgba(124, 92, 255, 0.35);
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
   }
 
   ::-webkit-scrollbar {
@@ -122,39 +302,31 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--tint-4);
     border-radius: 999px;
     border: 2px solid transparent;
     background-clip: content-box;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-hairline-strong);
     background-clip: content-box;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent-soft);
+    outline: 2px solid var(--color-accent);
     outline-offset: 2px;
     border-radius: 0.5rem;
   }
 }
 
 @layer components {
-  /* The glass surface every card is built from. */
+  /* The surface every card is built from. */
   .glass {
-    background:
-      linear-gradient(
-        160deg,
-        rgba(255, 255, 255, 0.055) 0%,
-        rgba(255, 255, 255, 0.02) 42%,
-        rgba(255, 255, 255, 0.012) 100%
-      );
+    background: var(--glass-gradient);
     border: 1px solid var(--color-hairline);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
-      0 18px 48px -24px rgba(0, 0, 0, 0.9);
+    box-shadow: var(--glass-shadow);
   }
 
   .glass-hover {
@@ -166,12 +338,9 @@
   .glass-hover:hover {
     border-color: var(--color-hairline-strong);
     transform: translateY(-2px);
-    box-shadow:
-      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
-      0 26px 60px -26px rgba(0, 0, 0, 0.95);
+    box-shadow: var(--glass-shadow-hover);
   }
 
-  /* Thin luminous rule used under section headings. */
   .hairline-glow {
     background: linear-gradient(
       90deg,
@@ -182,7 +351,12 @@
   }
 
   .text-gradient {
-    background: linear-gradient(120deg, #ffffff 0%, #c9c4ff 45%, #8ee6ff 100%);
+    background: linear-gradient(
+      120deg,
+      var(--color-ink) 0%,
+      color-mix(in oklab, var(--color-accent) 62%, var(--color-ink)) 55%,
+      color-mix(in oklab, var(--viz-2) 70%, var(--color-ink)) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

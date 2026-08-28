@@ -44,7 +44,7 @@ export function CoreSubjectStats({ stats }: { stats: Stat[] }) {
                 </span>
               </span>
             </div>
-            <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
+            <div className="h-1.5 w-full overflow-hidden rounded-full bg-[var(--tint-2)]">
               <div
                 className="h-full rounded-full transition-[width] duration-700 ease-out"
                 style={{ width: `${stat.rate}%`, background: SERIES[0] }}

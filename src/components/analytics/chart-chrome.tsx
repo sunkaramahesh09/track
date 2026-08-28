@@ -45,9 +45,7 @@ export function ChartTooltip({
   return (
     <div
       className="pointer-events-none min-w-[9.5rem] rounded-xl border border-[var(--color-hairline-strong)] px-3 py-2.5 shadow-2xl backdrop-blur-xl"
-      style={{
-        background: "color-mix(in oklab, var(--color-canvas) 93%, white 7%)",
-      }}
+      style={{ background: "var(--elevated-bg)" }}
     >
       <p className="text-[12px] font-semibold tracking-tight text-[var(--color-ink)]">
         {title}

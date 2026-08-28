@@ -122,7 +122,7 @@ export function AnalyticsView({ payload }: { payload: Payload }) {
                 className={cn(
                   "rounded-lg px-2.5 py-1 text-[11.5px] font-medium transition-colors",
                   range === option.days
-                    ? "bg-white/[0.09] text-[var(--color-ink)]"
+                    ? "bg-[var(--tint-4)] text-[var(--color-ink)]"
                     : "text-[var(--color-ink-faint)] hover:text-[var(--color-ink)]",
                 )}
               >

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/nav";
 import { Icon } from "@/components/ui/icon";
 import { formatDayLong, todayKey } from "@/lib/date";
+import { ThemeToggleButton } from "@/components/theme/theme-toggle";
 
 /** Compact header for small screens; the sidebar covers desktop. */
 export function TopBar() {
@@ -28,6 +29,8 @@ export function TopBar() {
             </p>
           </div>
         </div>
+
+        <ThemeToggleButton />
       </div>
     </div>
   );

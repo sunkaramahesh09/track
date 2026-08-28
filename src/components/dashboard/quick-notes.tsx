@@ -102,9 +102,9 @@ export function QuickNotes() {
                 setDraft((d) => ({ ...d, [field.key]: e.target.value }))
               }
               className={cn(
-                "w-full resize-y rounded-xl border border-[var(--color-hairline)] bg-white/[0.025] px-3 py-2.5 text-[13.5px] leading-relaxed",
+                "w-full resize-y rounded-xl border border-[var(--color-hairline)] bg-[var(--tint-1)] px-3 py-2.5 text-[13.5px] leading-relaxed",
                 "placeholder:text-[var(--color-ink-faint)]/70",
-                "transition-colors focus:border-[var(--color-accent)]/50 focus:bg-white/[0.04] focus:outline-none",
+                "transition-colors focus:border-[var(--color-accent)]/50 focus:bg-[var(--tint-2)] focus:outline-none",
               )}
             />
           </div>

@@ -137,7 +137,7 @@ export function DayDetailDialog({
                 return (
                   <li
                     key={task.id}
-                    className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-[13px] odd:bg-white/[0.02]"
+                    className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-[13px] odd:bg-[var(--tint-1)]"
                   >
                     <Icon
                       name={done ? "CircleCheck" : "Circle"}
@@ -161,7 +161,7 @@ export function DayDetailDialog({
                 );
               })}
 
-              <li className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-[13px] odd:bg-white/[0.02]">
+              <li className="flex items-center gap-3 rounded-lg px-2 py-1.5 text-[13px] odd:bg-[var(--tint-1)]">
                 <Icon
                   name={log.coreSubject.completed ? "CircleCheck" : "Circle"}
                   className="size-4 shrink-0"

@@ -23,7 +23,7 @@ export function ProgressBar({
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-full bg-white/[0.07]",
+        "relative w-full overflow-hidden rounded-full bg-[var(--tint-3)]",
         className,
       )}
       style={{ height }}

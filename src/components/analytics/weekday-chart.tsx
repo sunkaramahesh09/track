@@ -54,7 +54,7 @@ export function WeekdayChart({ data }: { data: WeekdayStat[] }) {
             width={44}
           />
           <Tooltip
-            cursor={{ fill: "rgba(255,255,255,0.04)" }}
+            cursor={{ fill: "var(--tint-2)" }}
             content={({ active, payload }) => {
               if (!active || !payload?.length) return null;
               const p = payload[0].payload as WeekdayStat;

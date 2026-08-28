@@ -253,14 +253,37 @@ curl -X PATCH http://localhost:3000/api/day/2026-08-28 \
 
 ---
 
+## Theming
+
+Light and dark are both first-class, with a three-way control (Light / Dark /
+System) in the sidebar and a cycling button in the mobile header. The choice
+persists in `localStorage`.
+
+- **Light is not an inversion of dark.** Ink colours are re-picked for contrast
+  against a light ground, and the chart and calendar marks are a separately
+  validated palette — checked for lightness band, chroma floor, colourblind
+  separation and surface contrast against *each* surface, not lightened from
+  the dark set.
+- **"System" removes the attribute** rather than stamping the resolved value,
+  so the CSS media query stays in charge and the page follows the OS if that
+  changes while the tab is open.
+- **No flash.** A tiny inline script in `<head>` applies the stored choice
+  before first paint; the React provider reads that state back through
+  `useSyncExternalStore` rather than deciding it in an effect.
+- Every colour is a role token defined once per theme in `globals.css`.
+  Components reference roles only — there are no hardcoded `white/[0.05]`
+  overlays left, so adding a third theme would touch one file.
+
+---
+
 ## Design notes
 
-- **Dark by default**, stamped on `<html>` rather than media-queried.
+- **Themed via role tokens**, with the explicit choice stamped on `<html>`.
 - **Two colour systems, deliberately separate.** `--accent-*` and `--tier-*` are
   *ink* colours tuned for text contrast; `--viz-*` and `--mark-*` are *mark*
   colours for chart fills and calendar cells, validated as a categorical set
-  against the dark canvas (lightness band, chroma floor, colourblind
-  separation, contrast).
+  against each canvas (lightness band, chroma floor, colourblind separation,
+  contrast).
 - **Glass is for in-flow surfaces only.** Overlays that land on top of dense
   content — modals, tooltips, the celebration toast — get an opaque ground.
 - **The calendar encodes twice**: hue for the tier, fill intensity for the
