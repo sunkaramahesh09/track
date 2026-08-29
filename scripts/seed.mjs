@@ -22,12 +22,13 @@ uri ??= "mongodb://127.0.0.1:27017/track";
 // `base` is the completion probability on a perfectly disciplined day; the
 // per-day `mood` multiplier below is what creates the variation.
 const TASKS = [
-  { id: "dsa", weight: 25, xp: 30, target: 180, base: 0.93 },
-  { id: "internship", weight: 15, xp: 20, target: 120, base: 0.95 },
-  { id: "english", weight: 10, xp: 15, target: 60, base: 0.82 },
-  { id: "sql", weight: 10, xp: 12, target: 2, base: 0.9 },
-  { id: "workout", weight: 10, xp: 10, target: 45, base: 0.86 },
-  { id: "resume", weight: 10, xp: 12, target: 60, base: 0.72 },
+  { id: "dsa", weight: 22, xp: 30, target: 180, base: 0.93 },
+  { id: "internship", weight: 13, xp: 20, target: 120, base: 0.95 },
+  { id: "aptitude", weight: 9, xp: 12, target: 45, base: 0.84 },
+  { id: "english", weight: 9, xp: 15, target: 60, base: 0.82 },
+  { id: "sql", weight: 9, xp: 12, target: 2, base: 0.9 },
+  { id: "workout", weight: 9, xp: 10, target: 45, base: 0.86 },
+  { id: "resume", weight: 9, xp: 12, target: 60, base: 0.72 },
   { id: "interview", weight: 5, xp: 8, target: 30, base: 0.8 },
   { id: "reading", weight: 5, xp: 8, target: 30, base: 0.83 },
 ];

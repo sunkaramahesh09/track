@@ -156,19 +156,20 @@ The weekday rotation lives in `src/lib/core-subjects.ts`, and badges in
 
 | Item | Weight | XP |
 |---|---:|---:|
-| DSA · 3 hours | 25 | 30 |
-| Internship Work · 2 hours | 15 | 20 |
-| English Speaking · 1 hour | 10 | 15 |
-| SQL Practice · 2 questions | 10 | 12 |
-| Workout · 45 minutes | 10 | 10 |
-| Resume Preparation · 1 hour | 10 | 12 |
+| DSA · 3 hours | 22 | 30 |
+| Internship Work · 2 hours | 13 | 20 |
+| Aptitude · 45 minutes | 9 | 12 |
+| English Speaking · 1 hour | 9 | 15 |
+| SQL Practice · 2 questions | 9 | 12 |
+| Workout · 45 minutes | 9 | 10 |
+| Resume Preparation · 1 hour | 9 | 12 |
 | Interview Questions · 30 minutes | 5 | 8 |
 | Book Reading · 30 minutes | 5 | 8 |
 | Core Subject (rotating) · 1 hour | 10 | 15 |
-| **Perfect day** | **100** | **130** |
+| **Perfect day** | **100** | **142** |
 
 Weights are deliberately uneven. Completion percentage counts items; the score
-weights them — so a day can be 78% complete by count and still score poorly if
+weights them — so a day can be 80% complete by count and still score poorly if
 DSA and the internship were the things skipped. That asymmetry is the point.
 
 | Score | Label |
@@ -216,7 +217,7 @@ string — timezone-stable and trivially indexable:
   tasks: [{ taskId, completed, completedAt, value }],
   coreSubject: { key, label, topics, completed, completedAt, value },
   notes: { wentWell, needsImprovement, tomorrowFocus, updatedAt },
-  score: 100, xpEarned: 130, completedCount: 9   // denormalised
+  score: 100, xpEarned: 142, completedCount: 10  // denormalised
 }
 ```
 

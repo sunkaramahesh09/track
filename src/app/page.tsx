@@ -15,6 +15,7 @@ import { CelebrationToast } from "@/components/dashboard/celebration-toast";
 import { PageHeader } from "@/components/layout/page-header";
 import { DatabaseError } from "@/components/layout/database-error";
 import { formatDayLong } from "@/lib/date";
+import { TASKS } from "@/lib/tasks";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -35,7 +36,7 @@ export default async function DashboardPage() {
         eyebrow={formatDayLong(date)}
         icon="Sun"
         title="Today's board"
-        description="Eight fixed tasks and one rotating core subject. Nothing rolls over — every morning is a clean slate, and that is exactly what makes the streak mean something."
+        description={`${TASKS.length} fixed tasks and one rotating core subject. Nothing rolls over — every morning is a clean slate, and that is exactly what makes the streak mean something.`}
       />
 
       <div className="space-y-4">

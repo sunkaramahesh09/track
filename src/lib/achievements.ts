@@ -102,6 +102,17 @@ export const ACHIEVEMENTS: readonly AchievementDefinition[] = [
     measure: (c) => daysWithTask(c.summaries, "english").length,
   },
   {
+    id: "aptitude-ace",
+    name: "Aptitude Ace",
+    description: "Drill aptitude 21 days in a row.",
+    icon: "Calculator",
+    accent: "lime",
+    tier: "gold",
+    goal: 21,
+    measure: (c) =>
+      longestRun(c.summaries, (s) => s.completedTaskIds.includes("aptitude")),
+  },
+  {
     id: "sql-consistency",
     name: "SQL Consistency",
     description: "Practise SQL 14 days in a row.",
