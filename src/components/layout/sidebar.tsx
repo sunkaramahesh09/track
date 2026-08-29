@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/nav";
 import { Icon } from "@/components/ui/icon";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { TimerNavPill } from "@/components/timer/timer-nav-indicator";
 import { cn } from "@/lib/utils";
 
 export function Sidebar() {
@@ -54,6 +55,7 @@ export function Sidebar() {
                 )}
               />
               <span className="font-medium">{item.label}</span>
+              {item.href === "/timer" && <TimerNavPill />}
             </Link>
           );
         })}

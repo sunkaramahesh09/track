@@ -1,6 +1,7 @@
 import { Sidebar } from "./sidebar";
 import { MobileNav } from "./mobile-nav";
 import { TopBar } from "./top-bar";
+import { TimerTitleBeacon } from "@/components/timer/timer-nav-indicator";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </main>
       </div>
       <MobileNav />
+      <TimerTitleBeacon />
     </div>
   );
 }

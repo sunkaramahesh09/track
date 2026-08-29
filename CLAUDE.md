@@ -74,6 +74,11 @@ build and are not covered by tsc.
 - Theme state is read with `useSyncExternalStore` from localStorage + the media
   query, never mirrored into state by an effect. The inline `THEME_BOOT_SCRIPT`
   in `<head>` must keep running before first paint or light mode flashes.
+- **The timer keeps no records.** `src/components/timer/` is client-only and
+  never touches the database — it is a module-level external store read with
+  `useSyncExternalStore`, persisted to localStorage, and its elapsed time is
+  derived from timestamps rather than counted frames, so a backgrounded tab or
+  a refresh costs nothing. Countdown presets come from `tasks.ts`.
 - Prefer deriving state over syncing it in an effect; where state must follow a
   prop, adjust during render (see `quick-notes.tsx`) rather than in `useEffect`.
 

@@ -1,5 +1,5 @@
 export interface NavItem {
-  href: "/" | "/analytics" | "/calendar" | "/achievements";
+  href: "/" | "/timer" | "/analytics" | "/calendar" | "/achievements";
   label: string;
   short: string;
   icon: string;
@@ -13,6 +13,13 @@ export const NAV_ITEMS: readonly NavItem[] = [
     short: "Today",
     icon: "LayoutDashboard",
     description: "Today's tasks, score and momentum",
+  },
+  {
+    href: "/timer",
+    label: "Timer",
+    short: "Timer",
+    icon: "Timer",
+    description: "Stopwatch and countdown for focused work",
   },
   {
     href: "/analytics",

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/nav";
 import { Icon } from "@/components/ui/icon";
+import { TimerNavDot } from "@/components/timer/timer-nav-indicator";
 import { cn } from "@/lib/utils";
 
 export function MobileNav() {
@@ -33,6 +34,7 @@ export function MobileNav() {
                 <span className="absolute -top-px h-[2px] w-8 rounded-full bg-[var(--color-accent)] shadow-[0_0_10px_var(--color-accent)]" />
               )}
               <Icon name={item.icon} className="size-5" />
+              {item.href === "/timer" && <TimerNavDot />}
               {item.short}
             </Link>
           );

@@ -108,6 +108,7 @@ src/
 ├── app/
 │   ├── layout.tsx                 # Shell, fonts, metadata, dark theme
 │   ├── page.tsx                   # Dashboard (server-rendered)
+│   ├── timer/page.tsx             # Stopwatch + countdown (client-only)
 │   ├── analytics/page.tsx
 │   ├── calendar/page.tsx
 │   ├── achievements/page.tsx
@@ -120,6 +121,7 @@ src/
 │   ├── ui/                        # Card, Button, Badge, ProgressRing, Dialog…
 │   ├── layout/                    # Sidebar, MobileNav, TopBar, PageHeader
 │   ├── dashboard/                 # Today's board widgets + state provider
+│   ├── timer/                     # Clock face, transport, external store
 │   ├── analytics/                 # Charts and shared chart chrome
 │   ├── calendar/                  # Contribution grid, month grid, day dialog
 │   └── achievements/              # Badge wall, XP reference
@@ -132,6 +134,7 @@ src/
 │   ├── streak.ts                  # Streak runs and records
 │   ├── analytics.ts               # Trend/bucket aggregation
 │   ├── overview.ts                # One-pass dashboard payload
+│   ├── timer.ts                   # Stopwatch/countdown maths + presets
 │   ├── date.ts                    # Day-key ("YYYY-MM-DD") helpers
 │   └── db/                        # Mongoose connection, models, day service
 ├── hooks/
